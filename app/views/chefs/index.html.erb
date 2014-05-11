@@ -1,0 +1,21 @@
+<%= link_to 'Signup', new_chef_path %>
+
+<h1>Listing Chefs</h1>
+
+<table>
+  <tr>
+    <th>Name</th>
+    <th>Email</th>
+    <th colspan="2"></th>
+  </tr>
+ 
+  <% @chefs.each do |chef| %>
+    <tr>
+      <td><%= chef.name %></td>
+      <td><%= chef.email_address %></td>
+    	<td><%= link_to 'Show', chef_path(chef) %></td>
+    	<td><%= link_to 'Edit', edit_chef_path(chef) %></td>
+    	<td><%= link_to 'Destroy', chef_path(chef), method: :delete, data: { confirm: 'Are you sure?' } %></td>   
+    </tr>
+  <% end %>
+</table>
